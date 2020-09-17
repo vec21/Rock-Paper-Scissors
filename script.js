@@ -1,3 +1,10 @@
+var rockOption = document.querySelector("#rock")
+var paperOption = document.querySelector("#paper")
+var scissorsOption = document.querySelector("#scissors")
+
+rockOption.addEventListener('click', game)
+
+
 function computerPlay() {
     var resul = Math.ceil(Math.random() * 3)
 
@@ -11,8 +18,8 @@ function computerPlay() {
 }
 function playRound(playerSelection, computerSelection) {
 
-    const papelWinPlayerSelection = (playerSelection === "PAPER" && computerSelection === "ROCK")
-    const papelWinComputerSelection = (playerSelection === "ROCK" && computerSelection === "PAPER")
+    const paperWinPlayerSelection = (playerSelection === "PAPER" && computerSelection === "ROCK")
+    const paperWinComputerSelection = (playerSelection === "ROCK" && computerSelection === "PAPER")
 
     const rockWinPlayerSelection = (playerSelection === "ROCK" && computerSelection === "SCISSORS")
     const rockWinComputerSelection = (playerSelection === "SCISSORS" && computerSelection === "ROCK")
@@ -24,9 +31,9 @@ function playRound(playerSelection, computerSelection) {
     const TieRock = (playerSelection === "ROCK" && computerSelection === "ROCK")
     const TiePaper = (playerSelection === "PAPER" && computerSelection === "PAPER")
 
-    if (papelWinPlayerSelection) {
+    if (paperWinPlayerSelection) {
         return "You Win! Paper beats Rock"
-    } else if (papelWinComputerSelection) {
+    } else if (paperWinComputerSelection) {
         return "You Lose! Paper beats Rock"
     } else if (rockWinPlayerSelection) {
         return "You Win! Rock beats Scissors"
@@ -53,7 +60,8 @@ function game(plays) {
     var contTie = 0
 
     for (let i = 0; i < plays; i++) {
-        var playerSelection = prompt("Rock Paper Scissors\n\n Choose an option").toUpperCase()
+        //var playerSelection = prompt("Rock Paper Scissors\n\n Choose an option").toUpperCase()
+        var playerSelection = rockOption.value
         var computerSelection = computerPlay()
         console.log(`\n${i + 1}º play \nComputer = ${computerSelection} \nYour = ${playerSelection} \n`)
         console.log(playRound(playerSelection, computerSelection))
@@ -69,7 +77,8 @@ function game(plays) {
 
     return `-----------------------------------\nYour Score = ${contPlayerSelectionWin}\nComputer Score = ${contComputerSelection}\nTie = ${contTie}`
 }
-var plays = Number(prompt("How many plays do you want?"))
+//var plays = Number(prompt("How many plays do you want?"))
+var plays = 4
 console.log(game(plays))
 
 
