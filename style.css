@@ -4,7 +4,7 @@ body{
     background-color: #85FFBD;
     background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
 }
 p{
     font-size: 20px;
@@ -21,7 +21,7 @@ a{
     align-items: center;
     margin: 0 auto;
     width: 80%;
-    height: 250px;
+    height: 300px;
     flex-direction: column;
     margin-bottom: 40px;
     background-color: azure;
@@ -40,7 +40,6 @@ a{
 }
 
 button{
-
     width: 150px;
     height: 50px;
     border: none;

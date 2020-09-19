@@ -9,8 +9,8 @@ const playerOption = document.querySelector('.player-option');
 const computerOption = document.querySelector('.computer-option');
 
 
-let contPlayerSelectionWin = 0
-let contComputerSelectionWin = 0
+let contPlayerSelectionWin = 0;
+let contComputerSelectionWin = 0;
 
 // computerSelection  
 function computerPlay() {
@@ -80,5 +80,30 @@ function playRound(playerSelection) {
         gameOption.textContent = "ERROR!";
     }
 
+    if (contPlayerSelectionWin === 5) {
+        gameOption.innerHTML = `
+                                <p>You Win ${contPlayerSelectionWin} players</p>
+                                <p>Computer Win ${contComputerSelectionWin} players</p>
+                                <p>Choose an option para outro jogo </p>`; //traduzirrrrrrrrrrrrrrrrr
 
+        gameOption.style.color = "green";
+        reset();
+    }
+    if (contComputerSelectionWin === 5) {
+        gameOption.innerHTML = `
+                                <p>Computer Win ${contComputerSelectionWin} players</p>
+                                <p>You Win ${contPlayerSelectionWin} players</p>
+                                <p>Choose an option para outro jogo </p>`; //traduzirrrrrrrrrrrrrrrrr
+        gameOption.style.color = "red";
+        reset();
+    }
+
+}
+function reset() {
+    contPlayerSelectionWin = 0;
+    contComputerSelectionWin = 0;
+    playerScore.innerHTML = `<code>Player: ${contPlayerSelectionWin}</code>`;
+    computerScore.innerHTML = `<code>Computer: ${contComputerSelectionWin}</code>`;
+    playerOption.innerHTML = `<code>Player: Rock </code>`;
+    computerOption.innerHTML = `<code>Computer: Rock</code>`;
 }
