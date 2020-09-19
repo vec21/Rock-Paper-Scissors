@@ -9,15 +9,10 @@ const playerOption = document.querySelector('.player-option');
 const computerOption = document.querySelector('.computer-option');
 
 
-
-
-
 let contPlayerSelectionWin = 0
 let contComputerSelectionWin = 0
 
-
-
-// 
+// computerSelection  
 function computerPlay() {
     var result = Math.ceil(Math.random() * 3);
 
@@ -84,5 +79,6 @@ function playRound(playerSelection) {
     } else {
         gameOption.textContent = "ERROR!";
     }
-}
 
+
+}
