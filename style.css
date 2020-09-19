@@ -4,7 +4,7 @@ body{
     background-color: #85FFBD;
     background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
     text-align: center;
-    display: fl;
+    font-size: 40px;
 }
 p{
     font-size: 20px;
@@ -14,4 +14,39 @@ a{
     padding: 20px;
     color:#F9629F;
     
+}
+
+.game{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 250px;
+    flex-direction: column;
+    margin-bottom: 40px;
+    background-color: azure;
+    border-radius: 8px;
+    border: 1px solid  #85FFBD;
+}
+.score{
+    width: 90%;
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+#game-option{
+    margin: 20px;     
+}
+
+button{
+
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: #F9629F;
+    font-size: 20px;
+    background: azure;
+    border-radius: 3px;
+    cursor: pointer;
 }

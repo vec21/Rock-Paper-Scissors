@@ -1,87 +1,88 @@
-var rockOption = document.querySelector("#rock")
-var paperOption = document.querySelector("#paper")
-var scissorsOption = document.querySelector("#scissors")
 
-rockOption.addEventListener('click', game)
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissor = document.querySelector('#scissor');
+const gameOption = document.querySelector('#game-option');
+const playerScore = document.querySelector('.player-score');
+const computerScore = document.querySelector('.computer-score');
+const playerOption = document.querySelector('.player-option');
+const computerOption = document.querySelector('.computer-option');
 
 
+
+
+
+let contPlayerSelectionWin = 0
+let contComputerSelectionWin = 0
+
+
+
+// 
 function computerPlay() {
-    var resul = Math.ceil(Math.random() * 3)
+    var result = Math.ceil(Math.random() * 3);
 
-    if (resul === 1) {
-        return "ROCK"
-    } else if (resul === 2) {
-        return "PAPER"
+    if (result === 1) {
+        return "Rock";
+    } else if (result === 2) {
+        return "Paper";
     } else {
-        return "SCISSORS"
+        return "Scissors";
     }
 }
-function playRound(playerSelection, computerSelection) {
 
-    const paperWinPlayerSelection = (playerSelection === "PAPER" && computerSelection === "ROCK")
-    const paperWinComputerSelection = (playerSelection === "ROCK" && computerSelection === "PAPER")
+function playRound(playerSelection) {
+    const computerSelection = computerPlay();
 
-    const rockWinPlayerSelection = (playerSelection === "ROCK" && computerSelection === "SCISSORS")
-    const rockWinComputerSelection = (playerSelection === "SCISSORS" && computerSelection === "ROCK")
+    playerOption.innerHTML = `<code>Player: ${playerSelection}</code>`;
+    computerOption.innerHTML = `<code>Computer: ${computerSelection}</code>`;
 
-    const ScissorsWinPlayerSelection = (playerSelection === "SCISSORS" && computerSelection === "PAPER")
-    const ScissorsWinComputerSelection = (playerSelection === "PAPER" && computerSelection === "SCISSORS")
 
-    const TieScissors = (playerSelection === "SCISSORS" && computerSelection === "SCISSORS")
-    const TieRock = (playerSelection === "ROCK" && computerSelection === "ROCK")
-    const TiePaper = (playerSelection === "PAPER" && computerSelection === "PAPER")
+
+    const paperWinPlayerSelection = (playerSelection === "Paper" && computerSelection === "Rock");
+    const paperWinComputerSelection = (playerSelection === "Rock" && computerSelection === "Paper");
+
+    const rockWinPlayerSelection = (playerSelection === "Rock" && computerSelection === "Scissors");
+    const rockWinComputerSelection = (playerSelection === "Scissors" && computerSelection === "Rock");
+
+    const ScissorsWinPlayerSelection = (playerSelection === "Scissors" && computerSelection === "Paper");
+    const ScissorsWinComputerSelection = (playerSelection === "Paper" && computerSelection === "Scissors");
+
+    const TieScissors = (playerSelection === "Scissors" && computerSelection === "Scissors");
+    const TieRock = (playerSelection === "Rock" && computerSelection === "Rock");
+    const TiePaper = (playerSelection === "Paper" && computerSelection === "Paper");
 
     if (paperWinPlayerSelection) {
-        return "You Win! Paper beats Rock"
+        contPlayerSelectionWin++;
+        playerScore.innerHTML = `<code>Player: ${contPlayerSelectionWin}</code>`;
+        gameOption.textContent = "You Win! Paper beats Rock";
     } else if (paperWinComputerSelection) {
-        return "You Lose! Paper beats Rock"
+        contComputerSelectionWin++;
+        computerScore.innerHTML = `<code>Computer: ${contComputerSelectionWin}</code>`;
+        gameOption.textContent = "You Lose! Paper beats Rock";
     } else if (rockWinPlayerSelection) {
-        return "You Win! Rock beats Scissors"
+        contPlayerSelectionWin++;
+        playerScore.innerHTML = `<code>Player: ${contPlayerSelectionWin}</code>`;
+        gameOption.textContent = "You Win! Rock beats Scissors";
     } else if (rockWinComputerSelection) {
-        return "You Lose! Rock beats Scissors"
+        contComputerSelectionWin++;
+        computerScore.innerHTML = `<code>Computer: ${contComputerSelectionWin}</code>`;
+        gameOption.textContent = "You Lose! Rock beats Scissors";
     } else if (ScissorsWinPlayerSelection) {
-        return "You Win! Scissors beats Paper"
+        contPlayerSelectionWin++;
+        playerScore.innerHTML = `<code>Player: ${contPlayerSelectionWin}</code>`;
+        gameOption.textContent = "You Win! Scissors beats Paper";
     } else if (ScissorsWinComputerSelection) {
-        return "You Lose! Scissors beats Paper"
+        contComputerSelectionWin++;
+        computerScore.innerHTML = `<code>Computer: ${contComputerSelectionWin}</code>`;
+        gameOption.textContent = "You Lose! Scissors beats Paper";
     } else if (TieScissors) {
-        return "Tie "
+        gameOption.textContent = "Tie ";
     } else if (TieRock) {
-        return "Tie "
+        gameOption.textContent = "Tie ";
     } else if (TiePaper) {
-        return "Tie "
+        gameOption.textContent = "Tie ";
     } else {
-        return "ERRRRRRROOOOOOOOOOOOOOOOOO!"
+        gameOption.textContent = "ERROR!";
     }
 }
-
-function game(plays) {
-    var contPlayerSelectionWin = 0
-    var contComputerSelection = 0
-    var contTie = 0
-
-    for (let i = 0; i < plays; i++) {
-        //var playerSelection = prompt("Rock Paper Scissors\n\n Choose an option").toUpperCase()
-        var playerSelection = rockOption.value
-        var computerSelection = computerPlay()
-        console.log(`\n${i + 1}º play \nComputer = ${computerSelection} \nYour = ${playerSelection} \n`)
-        console.log(playRound(playerSelection, computerSelection))
-
-        if ((playRound(playerSelection, computerSelection) == "You Win! Paper beats Rock") || (playRound(playerSelection, computerSelection) == "You Win! Rock beats Scissors") || (playRound(playerSelection, computerSelection) == "You Win! Scissors beats Paper")) {
-            contPlayerSelectionWin++
-        } else if ((playRound(playerSelection, computerSelection) == "You Lose! Paper beats Rock") || (playRound(playerSelection, computerSelection) == "You Lose! Rock beats Scissors") || (playRound(playerSelection, computerSelection) == "You Lose! Scissors beats Paper")) {
-            contComputerSelection++
-        } else {
-            contTie++
-        }
-    }
-
-    return `-----------------------------------\nYour Score = ${contPlayerSelectionWin}\nComputer Score = ${contComputerSelection}\nTie = ${contTie}`
-}
-//var plays = Number(prompt("How many plays do you want?"))
-var plays = 4
-console.log(game(plays))
-
-
-
-
 
