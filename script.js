@@ -84,17 +84,13 @@ function playRound(playerSelection) {
         gameOption.innerHTML = `
                                 <p>You Win ${contPlayerSelectionWin} players</p>
                                 <p>Computer Win ${contComputerSelectionWin} players</p>
-                                <p>Choose an option para outro jogo </p>`; //traduzirrrrrrrrrrrrrrrrr
-
-        gameOption.style.color = "green";
-        reset();
+                                <p>Choose an option for another game</p>`; 
     }
     if (contComputerSelectionWin === 5) {
         gameOption.innerHTML = `
                                 <p>Computer Win ${contComputerSelectionWin} players</p>
                                 <p>You Win ${contPlayerSelectionWin} players</p>
-                                <p>Choose an option para outro jogo </p>`; //traduzirrrrrrrrrrrrrrrrr
-        gameOption.style.color = "red";
+                                <p>Choose an option for another game</p>`; 
         reset();
     }
 
