@@ -82,14 +82,14 @@ function playRound(playerSelection) {
 
     if (contPlayerSelectionWin === 5) {
         gameOption.innerHTML = `
-                                <p>You Win ${contPlayerSelectionWin} players</p>
-                                <p>Computer Win ${contComputerSelectionWin} players</p>
+                                <p>You Won ${contPlayerSelectionWin} move</p>
+                                <p>Computer Won ${contComputerSelectionWin} move</p>
                                 <p>Choose an option for another game</p>`; 
     }
     if (contComputerSelectionWin === 5) {
         gameOption.innerHTML = `
-                                <p>Computer Win ${contComputerSelectionWin} players</p>
-                                <p>You Win ${contPlayerSelectionWin} players</p>
+                                <p>Computer Won ${contComputerSelectionWin} move</p>
+                                <p>You Won ${contPlayerSelectionWin} move</p>
                                 <p>Choose an option for another game</p>`; 
         reset();
     }
